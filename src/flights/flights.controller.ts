@@ -1,13 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
+import { Observable } from 'rxjs';
 
-import { FlightsService } from 'src/flights/flights.service';
+import { FlightsService } from 'src/flights/services/flights.service';
+import { FlightServiceResponse } from 'src/flights/interfaces';
 
-@Controller()
+@Controller('flights')
 export class FlightsController {
   constructor(private readonly appService: FlightsService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getFlights(): Observable<FlightServiceResponse> {
+    return this.appService.getFlights();
   }
 }

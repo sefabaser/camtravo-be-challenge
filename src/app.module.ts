@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
+import { EasyconfigModule } from 'nestjs-easyconfig';
 
-import { FlightsController } from 'src/flights/flights.controller';
-import { FlightsService } from 'src/flights/flights.service';
+import { FlightsModule } from 'src/flights/flights.module';
 
 @Module({
-  imports: [],
-  controllers: [FlightsController],
-  providers: [FlightsService],
+  imports: [FlightsModule, EasyconfigModule.register({ path: './envirenments/.env' })],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
