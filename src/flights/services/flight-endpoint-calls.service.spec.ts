@@ -1,10 +1,10 @@
 import { HttpService } from '@nestjs/common';
 import { of, throwError } from 'rxjs';
+import { delay, timeout } from 'rxjs/operators';
 import { EasyconfigService } from 'nestjs-easyconfig';
 
 import { FlightEndpointCallsService } from 'src/flights/services/flight-endpoint-calls.service';
 import { sampleHttpResponse, emptyHttpResponse, failedHttpResponse } from 'src/flights/mocks/mock-flights';
-import { delay, timeout } from 'rxjs/operators';
 
 describe('Flight Endpoint Calls Service', () => {
   let mockHttpService: HttpService;
