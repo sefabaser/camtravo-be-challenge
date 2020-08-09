@@ -6,10 +6,10 @@ import { FlightServiceResponse } from 'src/flights/interfaces';
 
 @Controller('flights')
 export class FlightsController {
-  constructor(private readonly appService: FlightsService) {}
+  constructor(private flightsService: FlightsService) {}
 
   @Get()
   getFlights(): Observable<FlightServiceResponse> {
-    return this.appService.getFlights();
+    return this.flightsService.getFlights();
   }
 }
